@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
       mpz_class G(g);
       for (int i=1; i <= n; ++i) {
         mpz_divexact_ui(E.get_mpz_t(), Enm1.get_mpz_t(), P[i]);
-        mpz_powm(r.get_mpz_t(), G.get_mpz_t(), E.get_mpz_t(), En.get_mpz_t());
+        gw_powm(r.get_mpz_t(), G.get_mpz_t(), E.get_mpz_t(), En.get_mpz_t());
         if (r == 1) {
           is_root = false;
           break;

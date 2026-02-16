@@ -6,10 +6,33 @@ Related forum posting:
 
 # efficiently find primitive root of prime Euclid number
 
-New euclid\_prime\_find\_root.cc, transpiled from seq.gp gist:  
+New euclid\_prime\_find\_root.cc (with ```gw_powm()```), transpiled from seq.gp gist:  
 https://gist.github.com/Hermann-SW/b4d422842b22da4d5f2838a211f38e02
 
-Is faster than PARI/GP on prime Euclid numbers (with 2,038/4,951/5,862 decimal digits):  
+With ```gw_powm()``` code is much faster than same code with [mpz_powm()](https://gmplib.org/manual/Integer-Exponentiation) on prime Euclid numbers (with 2,038/4,951/5,862 decimal digits):  
+```
+hermann@7950x:~/prp_and_sqrtm1$ time ./euclid_prime_find_root 643
+3
+
+real	0m24.780s
+user	0m24.776s
+sys	0m0.002s
+hermann@7950x:~/prp_and_sqrtm1$ time ./euclid_prime_find_root 1391
+24
+
+real	1m46.134s
+user	1m46.468s
+sys	0m0.056s
+hermann@7950x:~/prp_and_sqrtm1$ time ./euclid_prime_find_root 1613
+24
+
+real	2m24.651s
+user	2m24.982s
+sys	0m0.061s
+hermann@7950x:~/prp_and_sqrtm1$ 
+```
+
+And that is faster than PARI/GP on prime Euclid numbers (with 2,038/4,951/5,862 decimal digits):  
 ```
 hermann@7950x:~/prp_and_sqrtm1$ time ./euclid_prime_find_root 643
 3
@@ -32,7 +55,7 @@ sys	0m0.000s
 hermann@7950x:~/prp_and_sqrtm1$
 ```
 
-Here are the corresponding slower seq.gp runtimes (and those are much faster than GP znprimroot() runtimes):  
+Here are the corresponding slower seq.gp runtimes (and those are much faster than GP ```znprimroot()``` runtimes):  
 ```
 ? euclid_prime_find_root(643)
 cpu time = 29,777 ms, real time = 29,779 ms.
