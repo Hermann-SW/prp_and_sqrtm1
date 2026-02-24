@@ -1,3 +1,6 @@
+// @Neptune's largest known 3-Carmichael number:
+// https://www.mersenneforum.org/node/22080/page3#post1066763
+//
 // g++ -O3 96522.cc paulunderwood/gw_utility.o -lgmp -lgmpxx -Lp95v3019b14/gwnum -l:gwnum.a
 //
 #include <gmpxx.h>
