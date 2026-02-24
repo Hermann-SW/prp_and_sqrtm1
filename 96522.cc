@@ -1,17 +1,11 @@
 // g++ -O3 96522.cc paulunderwood/gw_utility.o -lgmp -lgmpxx -Lp95v3019b14/gwnum -l:gwnum.a
 //
-#include <stdlib.h>
-#include <stdint.h>
-#include <assert.h>
-
 #include <gmpxx.h>
 #include <iostream>
 
 extern "C" {
 #include "paulunderwood/gw_utility.h"
 }
-
-typedef uint64_t ut;
 
 int main(int argc, char *argv[]) {
   mpz_class p43;
