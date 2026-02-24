@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
   mpz_class p43;
   mpz_primorial_ui(p43.get_mpz_t(), 43);
 
-  mpz_class a = (5752211*p43/2-1);
+  mpz_class a = 5752211*p43/2-1;
   mpz_pow_ui(a.get_mpz_t(), a.get_mpz_t(), 1069);
 
   mpz_class p = 3*a/2+1;
