@@ -24,7 +24,8 @@ int main(int argc, char *argv[]) {
   mpz_class n = p*q*r;
   mpz_class n1 = n-1;
 
-  a = 2;
+  srandom(time(NULL));
+  a = 2+random();
   gw_powm(a.get_mpz_t(), a.get_mpz_t(), n1.get_mpz_t(), n.get_mpz_t());
 
   std::cout << a << "\n";
